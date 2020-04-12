@@ -6,6 +6,5 @@ before_install:
     - docker build -t travisreactimage -f Dockerfile.dev .
     
 script: 
-    - docker run travisreactimage npm run test -- --coverage
-
+    - docker run -e CI=true travisreactimage npm run test
 
