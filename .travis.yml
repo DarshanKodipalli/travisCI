@@ -1,0 +1,11 @@
+sudo: required #Super user permissions granted to run this build
+services:
+    - docker #install docker on its running container
+
+before_install:
+    - docker build -t travisreactimage -f Dockerfile.dev .
+    
+script: 
+    - docker run travisreactimage npm run test -- --coverage
+
+
