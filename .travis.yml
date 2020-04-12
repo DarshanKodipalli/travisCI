@@ -3,10 +3,10 @@ services:
     - docker #install docker on its running container
 
 before_install:
-    - docker build -t travisreactimage -f Dockerfile.dev .
+    - docker build -t travisreactimage1 -f Dockerfile.dev .
     
 script: 
-    - docker run -e CI=true travisreactimage npm run test
+    - docker run -e CI=true travisreactimage1 npm run test
 
 deploy:
     provider: elasticbeanstalk
