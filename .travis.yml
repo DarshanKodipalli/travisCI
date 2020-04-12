@@ -8,3 +8,15 @@ before_install:
 script: 
     - docker run -e CI=true travisreactimage npm run test
 
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "docker-react-from-travis"
+    env: "DockerReactFromTravis-env"
+    bucket_name: "elasticbeanstalk-us-east-2-786175676820"
+    bucket_path: "docker-react-from-travis"
+    on:
+        branch: master
+    access_key_id: $accessid
+    secret_access_key: 
+        secure: "$accesskey"
